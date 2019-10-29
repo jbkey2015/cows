@@ -1,11 +1,17 @@
-import cows from '../../helpers/data/cows';
+import cowData from '../../helpers/data/cows';
 
 import './cowList.scss';
 
 const buildCows = () => {
-  cows.getCows()
+  cowData.getCows()
     .then((response) => {
-      console.error('it worked', response.data);
+      const demCows = response.data.cows;
+      const cows = [];
+      Object.keys(demCows).forEach((cowId) => {
+        demCows[cowId].id = cowId;
+        cows.push(demCows[cowId]);
+      });
+      console.error('it worked', cows);
     })
     .catch((error) => {
       console.error('things broke', error);
