@@ -4,14 +4,8 @@ import './cowList.scss';
 
 const buildCows = () => {
   cowData.getCows()
-    .then((response) => {
-      const demCows = response.data.cows;
-      const cows = [];
-      Object.keys(demCows).forEach((cowId) => {
-        demCows[cowId].id = cowId;
-        cows.push(demCows[cowId]);
-      });
-      console.error('it worked', cows);
+    .then((cows) => {
+      console.error('cow array from cowList', cows);
     })
     .catch((error) => {
       console.error('things broke', error);
