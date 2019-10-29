@@ -1,11 +1,11 @@
-import cows from '../../helpers/data/cows';
+import cowData from '../../helpers/data/cows';
 
 import './cowList.scss';
 
 const buildCows = () => {
-  cows.getCows()
-    .then((response) => {
-      console.error('it worked', response.data);
+  cowData.getCows()
+    .then((cows) => {
+      console.error('cow array from cowList', cows);
     })
     .catch((error) => {
       console.error('things broke', error);
